@@ -1,0 +1,5 @@
+-Create subtraction function
+-Create specific area function
+-Create image sharpening function
+
+-Write a general ~4 paragraph paper about these functions
