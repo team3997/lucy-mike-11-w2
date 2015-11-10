@@ -2,4 +2,6 @@
 -Create specific area function
 -Create image sharpening function
 
+-Make these functions easy to change by the user
+
 -Write a general ~4 paragraph paper about these functions
