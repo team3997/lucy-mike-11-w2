@@ -6,31 +6,36 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-//Stucture of bitmap header (First 54 bytes of bitmap)
-struct BitMapHeader {
-	short Signature; //bmp identifiers, always = 19778
-	long Size;	//size of bmp in bytes
-	short Reserved1; 	// placeholder
-	short Reserved2;	//placeholder
-	long Offset;	//Offset till pixel data
-	long HeaderSize;	//header size in bytes
-	long Width;		// Width of image in pixels
-	long Height;	// Height
-	short Planes;	//1 plane for image
-	short BitsPerPixel;	//Amount of bits per pixel
-	long CompressionType; //Type of compression used.
-	long DataOfImage; //image size in bytes
-	long xPixelsPerMeter;
-	long yPixelsPerMeter;
-	long Colors;
-	long ImportantColor;
-} Header;
+#include "bmpHeader.h"
+#include "options.h"
+#include "run.h"
+#include "subtract.h"
+#include "sharpen.h"
+#include "process.h"
+#include "checkFile.h"
+
 
 
 int main() {
-	char *imagePath = "images/party.bmp";
-	return 0;
+	
+	char action[10];
+	
+	listOptions();
+	
+	fgets(action, sizeof(action), stdin);
+	action[strcspn(action, "\n")] = '\0';
+	
+	while(!(strcmp(action,"subtract") == 0 || strcmp(action,"sharpen") == 0 || strcmp(action,"process") == 0 || strcmp(action,"exit") == 0)){
+		printf("\nThat's not a valid option. Try again:\n");
+		
+		fgets(action, sizeof(action), stdin);
+		action[strcspn(action, "\n")] = '\0';
+	}
+	run(action);
+	
 
+	return 0;
 }
 
