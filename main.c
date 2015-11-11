@@ -8,13 +8,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "bmpHeader.h"
-#include "options.h"
-#include "run.h"
-#include "subtract.h"
-#include "sharpen.h"
-#include "process.h"
-#include "checkFile.h"
+#include "headers/bmpHeader.h"
+#include "headers/options.h"
+#include "headers/run.h"
+#include "headers/subtract.h"
+#include "headers/sharpen.h"
+#include "headers/process.h"
+#include "headers/checkFile.h"
 
 
 
