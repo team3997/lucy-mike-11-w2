@@ -40,7 +40,7 @@ void run(char *action) {
 			file2[strcspn(file2, "\n")] = '\0';
 		}
 		
-		//subtract(file, file2);
+		subtract(file, file2);
 	}
 	
 	//If the user picks sharpen

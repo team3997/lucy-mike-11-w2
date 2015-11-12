@@ -15,6 +15,7 @@
 #include "headers/sharpen.h"
 #include "headers/process.h"
 #include "headers/checkFile.h"
+#include "headers/processHeader.h"
 
 
 

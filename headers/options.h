@@ -6,9 +6,7 @@
 
 
 
-void listOptions() { 
-	
-	
+void listOptions(){ 
 	//Ask the user what he/she wants to do
 	printf("\nWhat would you like to do?\n");
 	printf("\nOptions:\n");
