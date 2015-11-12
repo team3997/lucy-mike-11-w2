@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <libgen.h>
 
 #include "headers/bmpHeader.h"
 #include "headers/options.h"
@@ -15,7 +16,7 @@
 #include "headers/sharpen.h"
 #include "headers/process.h"
 #include "headers/checkFile.h"
-#include "headers/processHeader.h"
+#include "headers/processBMP.h"
 
 
 
