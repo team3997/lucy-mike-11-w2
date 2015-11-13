@@ -1,5 +1,5 @@
 /*
- * process.h
+ * selectionProcess.h
  *
  *  Created on: Nov 10, 2015
  */
@@ -9,6 +9,7 @@ int process(char *path, int corner) {
 	
 	const int x;
 	const int y;
+	int i;
 	char *convertedPath;
 	
 	
@@ -41,18 +42,7 @@ int process(char *path, int corner) {
 	
 	
 	
-	
-	// Subtraction ALGORITHIM (this replaces imageArray1 with the new pixel data)
-	for (x = 0; x < (header2.Size); x++) //loops through each rgb value in each pixel
-	{
-		if(imageArray2[x]>imageArray1[x]){ // if color value from image2 is greater than the color value from image1, 
-				//imageArray1[x] = (255 + imageArray1[x]) - imageArray2[x]; //do a wrap-around algorithim where it starts subtracting from 255
-			imageArray1[x] = imageArray2[x] - imageArray1[x]; //absolute value
-		}
-		else{
-			imageArray1[x] = imageArray1[x] - imageArray2[x]; //else, simply subtract (image1 - image2)
-		}
-	}
+	processImageData(&header, &imageArray, x, y, corner);
 	
 	
 	//Make output filename
@@ -83,4 +73,31 @@ int process(char *path, int corner) {
 	// Print success!
 	printf("\nSuccess! Output: %s\n", convertedPath);
 	return 0;
+}
+
+
+int processImageData(struct BitMapHeader *HeaderInfo, unsigned char **array, int x, int y, int corner){
+	
+	
+	
+	if(corner == 0){
+		for (x = 0; x < (HeaderInfo->Size); x++){
+		}
+	}
+	}
+	
+	else if(corner == 1){
+	}
+	
+	else if(corner == 2){
+	}
+	
+	else if(corner == 3){
+	}
+	
+	
+	else{
+		printf("Error verifying corner input\n Exiting...\n");
+		exit(0);
+	}
 }
