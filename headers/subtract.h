@@ -24,12 +24,12 @@ int subtract(char *path1, char *path2) {
 
 	//Grab data from file1, and put it into our header structure(header1) and pixel array (imageArray1)
 	FILE *imageFile1 = fopen(path1, "rb"); // open file specified as path 1
-	grabBMP(&header1, &imageArray1, imageFile1, 0); //take all the data from the file 
+	grabBMP(&header1, &imageArray1, imageFile1, 1); //take all the data from the file 
 	fclose(imageFile1); // close file 
 	
 	//Grab data from file2, and put it into our header structure(header2) and pixel array (imageArray2)
 	FILE *imageFile2 = fopen(path2, "rb"); // open file specificed as path 2
-	grabBMP(&header2, &imageArray2, imageFile2, 0); //take all the data from the file 
+	grabBMP(&header2, &imageArray2, imageFile2, 1); //take all the data from the file 
 	fclose(imageFile2); // close file 
 
 	//if Image 2 has bigger width or height, terminate.
@@ -44,7 +44,8 @@ int subtract(char *path1, char *path2) {
 	for (x = 0; x < (header2.Size); x++) //loops through each rgb value in each pixel
 	{
 		if(imageArray2[x]>imageArray1[x]){ // if color value from image2 is greater than the color value from image1, 
-				imageArray1[x] = (255 + imageArray1[x]) - imageArray2[x]; //do a wrap-around algorithim where it starts subtracting from 255
+				//imageArray1[x] = (255 + imageArray1[x]) - imageArray2[x]; //do a wrap-around algorithim where it starts subtracting from 255
+			imageArray1[x] = imageArray2[x] - imageArray1[x]; //absolute value
 		}
 		else{
 			imageArray1[x] = imageArray1[x] - imageArray2[x]; //else, simply subtract (image1 - image2)

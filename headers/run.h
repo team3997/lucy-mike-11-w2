@@ -8,6 +8,7 @@
 void run(char *action) { 
 	char file[100];
 	char file2[100];
+	int corner = 0;
 	
 	//If the user picks subtract
 	if(strcmp(action,"subtract") == 0){
@@ -77,8 +78,18 @@ void run(char *action) {
 			file[strcspn(file, "\n")] = '\0';
 		}
 		
-		//process(file);
-	}
+		printf("\nFrom which corner do you want to select?\n");
+		printf("Input: \n0 for top left \n1 for top right \n2 for bottom right \n3 for bottom right\n");
+		
+		//Get input
+		scanf("%d",&corner); 
+		while((corner != 0) || (corner != 1) || (corner != 2) || (corner != 3)){
+			printf("\nNot a valid corner choice. Try Again \n");
+			scanf("%d",&corner); 
+		}
+		printf("success\n");
+		process(file, corner);
+	}	  
 	//If the user types exit, then quit the program.
 	else if(strcmp(action,"exit") == 0){
 		printf("\nExiting...\n");
@@ -86,7 +97,7 @@ void run(char *action) {
 	}
 	//
 	else{
-		printf("\nError verifying input. Exiting...\n");
+		printf("\nError verifying input. \nExiting...\n");
 		exit(0);
 	}
 }

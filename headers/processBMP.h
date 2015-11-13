@@ -26,6 +26,10 @@ grabBMP(struct BitMapHeader *HeaderInfo, unsigned char **array, FILE *file, int 
 	fread(&HeaderInfo->Colors, 4, 1, file);
 	fread(&HeaderInfo->ImportantColor, 4, 1, file);
 	
+	if(HeaderInfo->BitsPerPixel != 24){
+		printf("This program is only compatible with 24-bit BMP files.\n Exiting...\n");
+		exit(0);
+	}
 	//Allocate memory for our pixel data array
 	*array = (unsigned char*) malloc(HeaderInfo->Size);
 	
@@ -81,4 +85,6 @@ putBMP(struct BitMapHeader *HeaderInfo, unsigned char **array, FILE *file){
 	fwrite(*array, HeaderInfo->Size, 1, file);
 
 }
+
+getWidth()
 
