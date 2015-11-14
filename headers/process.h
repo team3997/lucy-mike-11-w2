@@ -7,8 +7,8 @@
 
 int process(char *path, int corner) {
 	
-	const int x;
-	const int y;
+	int x;
+	int y;
 	int i;
 	char *convertedPath;
 	
@@ -47,17 +47,14 @@ int process(char *path, int corner) {
 	
 	//Make output filename
 	char *init = "images/output/";
-	char *fileEnd = "_subtract.bmp";
+	char *fileEnd = "_processed.bmp";
 	char *underScore = "_";
-	char *conPath1 = basename(path1);
-	char *conPath2 = basename(path2);
+	char *conPath1 = basename(path);
 	conPath1[strcspn(conPath1, ".")] = '\0';
-	conPath2[strcspn(conPath2, ".")] = '\0';
-	convertedPath = malloc(strlen(init)+strlen(conPath1)+strlen(underScore)+strlen(conPath2)+strlen(fileEnd)+1);
+	convertedPath = malloc(strlen(init)+strlen(conPath1)+strlen(underScore)+strlen(fileEnd)+1);
 	strcpy(convertedPath, init);
 	strcat(convertedPath, conPath1);
 	strcat(convertedPath, underScore);
-	strcat(convertedPath, conPath2);
 	strcat(convertedPath, fileEnd);
 	
 	// Create a new file named newImage and set the path to images/converted.bmp
@@ -65,7 +62,7 @@ int process(char *path, int corner) {
 	newImage = fopen(convertedPath,"wb");
 
 	// write data to new file.
-	putBMP(&header1, &imageArray1, newImage);
+	putBMP(&header, &imageArray, newImage);
 	
 	//close the open image
 	fclose(newImage);
@@ -83,7 +80,6 @@ int processImageData(struct BitMapHeader *HeaderInfo, unsigned char **array, int
 	if(corner == 0){
 		for (x = 0; x < (HeaderInfo->Size); x++){
 		}
-	}
 	}
 	
 	else if(corner == 1){
