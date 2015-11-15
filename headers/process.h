@@ -92,7 +92,7 @@ int process(char *path, int corner) {
 			
 	}
 	
-	else if(corner == ){ // bottom left
+	else if(corner == 2){ // bottom left
 		for (i = 0; i < 3*(header.Width * y); i+=3){
 
 			if((counter % (header.Width)) <= x){
