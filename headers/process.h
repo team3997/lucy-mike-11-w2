@@ -92,24 +92,23 @@ int process(char *path, int corner) {
 			
 	}
 	
-	else if(corner == 2){ // bottom left
-		for (i = 0; i < 3*(x * y); i+=3){
-			
-			if((counter % (header.Width)) <= (header.Width - x)){
-				
+	else if(corner == ){ // bottom left
+		for (i = 0; i < 3*(header.Width * y); i+=3){
+
+			if((counter % (header.Width)) <= x){
+				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
+				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;	
 			}
 			
-			else
-			{
-				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
-				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;
+			else	{
+
 			}
 			counter++;
 			
 		}	
 	}
-	else if(corner == 1){ // bottom right
-		for (i = 0; i < 3*(x * y); i+=3){
+	else if(corner == 3){ // bottom right
+		for (i = 0; i < 3*(header.Width * y); i+=3){
 			
 			if((counter % (header.Width)) <= (header.Width - x)){
 				
