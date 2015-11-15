@@ -7,9 +7,14 @@
 
 int process(char *path, int corner) {
 	
+	int i;
+	int n;
+	int counter = 0;
+	int greyed;
+	
 	int x;
 	int y;
-	int i;
+	
 	char *convertedPath;
 	
 	
@@ -42,8 +47,89 @@ int process(char *path, int corner) {
 	
 	
 	
-	processImageData(&header, &imageArray, x, y, corner);
+	if(corner == 0){ //topleft corner
+		for (i = 0; i < 3*(header.Width)*(header.Height - y); i+=3){
+			
+			
+		}
+
+		for (n = i; n < 3*(header.Width)*(header.Height); n+=3){
+			
+			if((counter % (header.Width)) >= (header.Width - x)){
+				
+			}
+			
+			else
+			{
+				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
+				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;
+			}
+			counter++;
+		}
+			
+	}
 	
+	else if(corner == 1){ // top right corner
+		for (i = 0; i < 3*(header.Width)*(header.Height - y); i+=3){
+			
+			
+		}
+
+		for (n = i; n < 3*(header.Width)*(header.Height); n+=3){
+			
+			
+			if((counter % (header.Width)) <= (header.Width - x)){
+				
+			}
+			
+			else
+			{
+				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
+				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;
+			}
+			counter++;
+		}
+			
+	}
+	
+	else if(corner == 2){ // bottom left
+		for (i = 0; i < 3*(x * y); i+=3){
+			
+			if((counter % (header.Width)) <= (header.Width - x)){
+				
+			}
+			
+			else
+			{
+				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
+				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;
+			}
+			counter++;
+			
+		}	
+	}
+	else if(corner == 1){ // bottom right
+		for (i = 0; i < 3*(x * y); i+=3){
+			
+			if((counter % (header.Width)) <= (header.Width - x)){
+				
+			}
+			
+			else
+			{
+				greyed = ((imageArray[n] + imageArray[n+1] + imageArray[n+2])/3);
+				imageArray[n] = imageArray[n+1] = imageArray[n+2] = greyed;
+			}
+			counter++;
+			
+		}	
+			
+	}
+		
+	
+	
+	
+	//processImageData(&header, &imageArray, x, y, corner);
 	
 	//Make output filename
 	char *init = "images/output/";
@@ -62,7 +148,7 @@ int process(char *path, int corner) {
 	newImage = fopen(convertedPath,"wb");
 
 	// write data to new file.
-	putBMP(&header, &imageArray, newImage);
+	putBMP(&header, imageArray, newImage);
 	
 	//close the open image
 	fclose(newImage);
@@ -73,16 +159,36 @@ int process(char *path, int corner) {
 }
 
 
-int processImageData(struct BitMapHeader *HeaderInfo, unsigned char **array, int x, int y, int corner){
+/*int processImageData(struct BitMapHeader *HeaderInfo, unsigned char **array, int x, int y, int corner){
 	
-	
-	
-	if(corner == 0){
-		for (x = 0; x < (HeaderInfo->Size); x++){
-		}
+	int i;
+	int n;
+	int counter = 0;
+	int greyed;
+	*array = (unsigned char*) malloc(HeaderInfo->Size);
+	if(corner == 0){ //topleft
+		
 	}
-	
 	else if(corner == 1){
+		for (i = 0; i < 3*(HeaderInfo->Width)*(HeaderInfo->Height - y); i+=3){
+			
+			
+		}
+
+		for (n = i; n < 3*(HeaderInfo->Width)*(HeaderInfo->Height); n+=3){
+			
+			
+			if((counter % (HeaderInfo->Width)) <= (HeaderInfo->Width - x)){
+				
+			}
+			
+			else
+			{
+				greyed = *array[n];
+			}
+			counter++;
+		}
+			
 	}
 	
 	else if(corner == 2){
@@ -96,4 +202,4 @@ int processImageData(struct BitMapHeader *HeaderInfo, unsigned char **array, int
 		printf("Error verifying corner input\n Exiting...\n");
 		exit(0);
 	}
-}
+}*/

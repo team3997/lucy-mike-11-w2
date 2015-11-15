@@ -13,7 +13,7 @@
 #include "headers/options.h"
 #include "headers/run.h"
 #include "headers/subtract.h"
-#include "headers/sharpen.h"
+//#include "headers/sharpen.h"
 #include "headers/process.h"
 #include "headers/checkFile.h"
 #include "headers/processBMP.h"

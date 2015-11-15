@@ -60,7 +60,7 @@ void run(char *action) {
 			file[strcspn(file, "\n")] = '\0';
 		}
 		
-		//sharpen(file);
+		sharpen(file);
 	}
 	//If the user picks process
 	else if(strcmp(action,"process") == 0){
@@ -79,11 +79,11 @@ void run(char *action) {
 		}
 		
 		printf("\nFrom which corner do you want to select?\n");
-		printf("Input: \n0 for top left \n1 for top right \n2 for bottom right \n3 for bottom right\n");
+		printf("Input: \n0 for top left \n1 for top right \n2 for bottom left \n3 for bottom right\n");
 		
 		//Get input
 		scanf("%d",&corner); 
-		while((corner != 0) || (corner != 1) || (corner != 2) || (corner != 3)){
+		while(!((corner == 1) || (corner == 0) || (corner == 2) || (corner == 3)) ){
 			printf("\nNot a valid corner choice. Try Again \n");
 			scanf("%d",&corner); 
 		}

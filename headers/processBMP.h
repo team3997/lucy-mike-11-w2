@@ -86,5 +86,3 @@ putBMP(struct BitMapHeader *HeaderInfo, unsigned char **array, FILE *file){
 
 }
 
-getWidth()
-
