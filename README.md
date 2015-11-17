@@ -1,2 +1,2 @@
 # week2project
-Code for week 2 project (started sunday nov. 8)
+This program allows the user to subtract, sharpen, or process a 24-bit bmp files.
