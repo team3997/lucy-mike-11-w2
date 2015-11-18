@@ -148,7 +148,7 @@ int process(char *path, int corner) {
 	newImage = fopen(convertedPath,"wb");
 
 	// write data to new file.
-	putBMP(&header, imageArray, newImage);
+	putBMP(&header, &imageArray, newImage);
 	
 	//close the open image
 	fclose(newImage);

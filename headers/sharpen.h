@@ -128,7 +128,7 @@ int sharpen(char *path) {
 	newImage = fopen(convertedPath,"wb");
 
 	// write data to new file.
-	putBMP(&header, pixelsAlt, newImage);
+	putBMP(&header, &pixelsAlt, newImage);
 
 	//close the open image
 	fclose(newImage);
