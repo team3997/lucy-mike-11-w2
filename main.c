@@ -17,6 +17,7 @@
 #include "headers/process.h"
 #include "headers/checkFile.h"
 #include "headers/processBMP.h"
+#include "headers/prison.h"
 
 
 
@@ -32,7 +33,7 @@ int main() {
 	action[strcspn(action, "\n")] = '\0';
 	
 	//While they do not select a valid option, reprompt them.
-	while(!(strcmp(action,"subtract") == 0 || strcmp(action,"sharpen") == 0 || strcmp(action,"process") == 0 || strcmp(action,"exit") == 0)){
+	while(!(strcmp(action,"subtract") == 0 || strcmp(action,"sharpen") == 0 || strcmp(action,"process") == 0 || strcmp(action,"prison") == 0 || strcmp(action,"exit") == 0)){
 		printf("\nThat's not a valid option. Try again:\n");
 		
 		fgets(action, sizeof(action), stdin);

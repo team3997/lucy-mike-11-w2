@@ -89,7 +89,25 @@ void run(char *action) {
 		}
 		printf("success\n");
 		process(file, corner);
-	}	  
+	}
+	//if user picks rainbow
+	else if(strcmp(action,"prison") == 0){
+		printf("\nEnter the path of the image you would like to put into prison:\n");
+		
+		//Get file
+		fgets(file,sizeof(file),stdin);
+		file[strcspn(file, "\n")] = '\0';
+		
+		//Make sure file is valid
+		while(checkFile(file)){
+			printf("\nInvalid File. or path too long. Try Again \n");
+			
+			fgets(file,sizeof(file),stdin);
+			file[strcspn(file, "\n")] = '\0';
+		}
+
+		prison(file);  
+	}
 	//If the user types exit, then quit the program.
 	else if(strcmp(action,"exit") == 0){
 		printf("\nExiting...\n");

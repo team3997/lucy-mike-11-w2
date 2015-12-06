@@ -13,6 +13,7 @@ void listOptions(){
 	printf("\tsubtract\n");
 	printf("\tsharpen\n");
 	printf("\tprocess\n");
+	printf("\tprison\n");
 	
 	printf("\n Or type 'exit' to quit.\n");
 }
